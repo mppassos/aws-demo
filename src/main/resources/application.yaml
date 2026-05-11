@@ -1,0 +1,36 @@
+spring:
+  application:
+    name: aws-microservice-demo
+
+# AWS Configuration (usando LocalStack localmente)
+aws:
+  region: us-east-1
+  dynamodb:
+    endpoint: ${DYNAMODB_ENDPOINT:http://localhost:4566}
+    table-name: orders
+  sns:
+    endpoint: ${SNS_ENDPOINT:http://localhost:4566}
+    topic-arn: ${SNS_TOPIC_ARN:arn:aws:sns:us-east-1:000000000000:order-events}
+  sqs:
+    endpoint: ${SQS_ENDPOINT:http://localhost:4566}
+    queue-url: ${SQS_QUEUE_URL:http://sqs.us-east-1.localhost.localstack.cloud:4566/000000000000/order-queue}
+
+# Actuator para health checks
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,metrics
+  endpoint:
+    health:
+      show-details: always
+
+# Porta do servidor
+server:
+  port: 8080
+
+# Logging
+logging:
+  level:
+    com.matheus.awsdemo: DEBUG
+    software.amazon.awssdk: INFO
