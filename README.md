@@ -251,19 +251,9 @@ docker run -p 8080:8080 \
 
 ---
 
-## 👤 Autor
-
-**Matheus** - Desenvolvedor Java | Entusiasta AWS
-
-[![GitHub](https://img.shields.io/badge/GitHub-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/SEU-USUARIO)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/SEU-PERFIL)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/matheuspereiradospassosoliveira)
 
 ---
 
-## 📄 Licença
-
-Este projeto está sob licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
----
 
 ⭐ **Se este projeto te ajudou, deixe uma estrela!** ⭐
