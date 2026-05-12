@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  localstack:
+    image: localstack/localstack:3.4
+    container_name: localstack-aws
+    ports:
+      - "4566:4566"            # Gateway principal do LocalStack
+      - "4510-4559:4510-4559"  # Extensão de portas
+    environment:
+      - SERVICES=dynamodb,sns,sqs,cloudwatch  # Servicos simulados
+      - DEFAULT_REGION=us-east-1              # Região AWS
+      - DEBUG=0                               # 0 = sem logs verbosos
+      - DATA_DIR=/tmp/localstack/data         # Persistência de dados
+    volumes:
+      - "${TMPDIR:-/tmp}/localstack:/tmp/localstack"
+      - "/var/run/docker.sock:/var/run/docker.sock"
+      - ./src/main/resources/localstack-init.sh:/etc/localstack/init/ready.d/init-aws.sh  # Script automático
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:4566/_localstack/health"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - localstack-net
+
+networks:
+  localstack-net:
+    driver: bridge
